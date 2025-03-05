@@ -4,14 +4,14 @@ const nextConfig = {
   basePath: '/public',
 
   async rewrites() {
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://booster-f0cy2omok-akhilsoigamas-projects.vercel.app';
 
     return [
-      {
-        source: '/api/:path*',
-        destination: `${API_URL}/api/:path*`,
-      },
-    ];
+      
+        {
+          source: '/api/:path*',
+          destination: 'https://your-production-api-url.com/api/:path*', // Replace with the correct URL
+        },
+      ];
   },
 };
 
