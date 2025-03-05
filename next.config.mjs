@@ -9,7 +9,7 @@ const nextConfig = {
       
         {
           source: '/api/:path*',
-          destination: 'https://your-production-api-url.com/api/:path*', // Replace with the correct URL
+          destination: 'http://localhost:5000//api/:path*', 
         },
       ];
   },
