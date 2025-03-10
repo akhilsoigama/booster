@@ -6,24 +6,24 @@ import TitleField from '../common/controller/TitleField';
 import AuthorField from '../common/controller/AutherField';
 import ContentField from '../common/controller/Content';
 import DropzoneField from '../common/controller/DropzoneField';
+import { useUser } from '@/app/contaxt/userContaxt';
 
 
 const PostForm = () => {
-    const {
-        control,
-        handleSubmit,
-        formState: { errors }
-        ,
-        reset
-    } = useForm();
+    // const { user } = useUser()
+    const { control, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = (data) => {
-        console.log('Form Data:', data);
+        // const userDetails = user._id
+        // const User_id = userDetails
+        // const postData = { ...data, userId: User_id }
+        // console.log(postData)
         reset({ content: '' })
+
     };
 
     return (
-        <Box className="max-w-3xl mx-auto p-6 rounded-lg shadow-lg">
+        <Box className="max-w-xl mb-10  mx-auto p-6 mt-20 rounded-lg shadow-lg">
             <Typography
                 variant="h4"
                 className="mb-6 text-center font-bold"

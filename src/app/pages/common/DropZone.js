@@ -39,15 +39,12 @@ const ImageDropZone = ({
 
         const file = acceptedFiles[0];
         if (file) {
-            try {
                 const compressedFile = await compressImage(file);
                 const preview = URL.createObjectURL(compressedFile);
                 const base64 = await convertToBase64(compressedFile);
                 setImage({ file: compressedFile, preview });
                 onChange(base64);
-            } catch (error) {
-                console.error("Error processing file:", error);
-            }
+            
         }
     };
 
