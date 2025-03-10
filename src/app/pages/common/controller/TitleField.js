@@ -18,7 +18,13 @@ const TitleField = ({ control, errors }) => {
                         fullWidth
                         error={!!errors.title}
                         helperText={errors.title ? errors.title.message : ''}
-                        className="bg-white rounded-lg"
+                        className="  dark:bg-gray-800 dark:text-white dark:border-gray-700 rounded-lg"
+                        InputProps={{
+                            className: 'dark:text-white',
+                        }}
+                        InputLabelProps={{
+                            className: 'dark:text-gray-400',
+                        }}
                     />
                 )}
             />
