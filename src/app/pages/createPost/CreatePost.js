@@ -19,15 +19,23 @@ const PostForm = () => {
 
     const onSubmit = (data) => {
         console.log('Form Data:', data);
-        reset({content:''})
+        reset({ content: '' })
     };
 
     return (
-        <Box className="max-w-3xl mx-auto p-6 bg-gray-50 rounded-lg shadow-lg">
-            <Typography variant="h4" className="mb-6 text-center font-bold">
+        <Box className="max-w-3xl mx-auto p-6 rounded-lg shadow-lg">
+            <Typography
+                variant="h4"
+                className="mb-6 text-center font-bold"
+                style={{
+                    background: 'linear-gradient(45deg, #FE6B8B, #FF8E53)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                }}
+            >
                 Create a New Post
             </Typography>
-            <form onSubmit={handleSubmit(onSubmit)} className=" flex flex-col">
+            <form onSubmit={handleSubmit(onSubmit)} className=" flex mt-5 flex-col">
                 <TitleField control={control} errors={errors} />
 
                 <AuthorField control={control} errors={errors} />
