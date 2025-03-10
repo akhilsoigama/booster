@@ -1,6 +1,6 @@
 const cors = require('cors');
 
-const allowedOrigins = ['https://booster-delta.vercel.app/', 'http://localhost:3000'];
+const allowedOrigins = ['https://booster-delta.vercel.app', 'http://localhost:3000'];
 
 const corsOptions = {
   origin: (origin, callback) => {
