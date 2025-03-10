@@ -14,25 +14,35 @@ import { toast } from 'sonner';
 
 
 const PostForm = () => {
-    const { user } = useUser()
-    const { control, handleSubmit, formState: { errors }, reset } = useForm({
-        resolver:zodResolver(PostSchemas)
+    const { user } = useUser();
+    const {
+      control,
+      handleSubmit,
+      formState: { errors },
+      reset,
+    } = useForm({
+      resolver: zodResolver(PostSchemas),
     });
-    const baseUrl = process.env.NEXT_PUBLIC_HOST
-    const onSubmit = async(data) => {
-        const userDetails = user._id
-        const User_id = userDetails
-        const postData = { ...data, userId: User_id }
-
-        const response = await axios.post(`${baseUrl}/api/create-post`,postData)
-        if(response.data){
-            toast.success(response.data.message)
+  
+    const baseUrl = process.env.NEXT_PUBLIC_HOST;
+  
+    const onSubmit = async (data) => {
+      const userDetails = user._id; 
+      const User_id = userDetails;
+      const postData = { ...data, User_id }; 
+      try {
+        const response = await axios.post(`${baseUrl}/api/create-post`, postData);
+  
+        if (response.data) {
+            console.log(response.data)
+          toast.success(response.data.message); 
+        } else {
+          toast.error(response.data.message); 
         }
-        else{
-            toast.error(response.data.message)
-        }
-        reset(data)
-
+        reset({ content: "" }); 
+      } catch (error) {
+        toast.error(response.data.message); 
+      }
     };
 
     return (

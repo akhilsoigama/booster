@@ -40,30 +40,31 @@ const extensions = [
   }),
 ];
 
-const TiptapEditor = ({ onChange, value }) => {
+const TiptapEditor = ({ onChange, value}) => {
   const [editorContent, setEditorContent] = useState(value || '');
 
   useEffect(() => {
-    setEditorContent(value || ''); 
+    setEditorContent(value || '');
   }, [value]);
 
   return (
     <div className="w-full">
-    <EditorProvider
-      slotBefore={<MenuBar />}
-      extensions={[StarterKit]}
-      content={editorContent}
-      onUpdate={({ editor }) => {
-        const html = editor.getHTML();
-        setEditorContent(html);
-        onChange(html); 
-      }}
-      immediatelyRender={false}
-    >
-     
-    </EditorProvider>
-  </div>
-);
+      <EditorProvider
+        name='content'
+        slotBefore={<MenuBar />}
+        extensions={[StarterKit]}
+        content={editorContent}
+        onUpdate={({ editor }) => {
+          const html = editor.getHTML();
+          setEditorContent(html);
+          onChange(html);
+        }}
+        immediatelyRender={false}
+      >
+
+      </EditorProvider>
+    </div>
+  );
 };
 
 

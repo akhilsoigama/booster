@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
-app.use('/api', postRouter)
+app.use('/api', postRouter);
 app.get('/', (req, res) => {
   res.send('<h1>This is the home page</h1>');
 });

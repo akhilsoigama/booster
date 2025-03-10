@@ -16,7 +16,7 @@ const ContentField = ({ control, errors }) => {
         render={({ field }) => (
           <Box>
             <TiptapEditor
-              value={field.value}
+              value={field.value} 
               onChange={field.onChange}
             />
             {errors.content && (
