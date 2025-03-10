@@ -8,7 +8,6 @@ const userSchema = new mongoose.Schema({
   auther: {
     type: String,
     required: true,
-    unique: true,
   },
   content: {
     type: String,

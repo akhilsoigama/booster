@@ -10,7 +10,7 @@ const page = () => {
     <div className='relative w-full h-screen'>
     <UserProvider>
       <div className='w-full flex '>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <CreatePost/>
       </div>
       <BottomNavbar />

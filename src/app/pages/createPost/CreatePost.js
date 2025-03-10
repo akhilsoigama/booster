@@ -7,18 +7,31 @@ import AuthorField from '../common/controller/AutherField';
 import ContentField from '../common/controller/Content';
 import DropzoneField from '../common/controller/DropzoneField';
 import { useUser } from '@/app/contaxt/userContaxt';
+import axios from 'axios';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { PostSchemas } from '../schemas/Schemas';
+import { toast } from 'sonner';
 
 
 const PostForm = () => {
-    // const { user } = useUser()
-    const { control, handleSubmit, formState: { errors }, reset } = useForm();
+    const { user } = useUser()
+    const { control, handleSubmit, formState: { errors }, reset } = useForm({
+        resolver:zodResolver(PostSchemas)
+    });
+    const baseUrl = process.env.NEXT_PUBLIC_HOST
+    const onSubmit = async(data) => {
+        const userDetails = user._id
+        const User_id = userDetails
+        const postData = { ...data, userId: User_id }
 
-    const onSubmit = (data) => {
-        // const userDetails = user._id
-        // const User_id = userDetails
-        // const postData = { ...data, userId: User_id }
-        // console.log(postData)
-        reset({ content: '' })
+        const response = await axios.post(`${baseUrl}/api/create-post`,postData)
+        if(response.data){
+            toast.success(response.data.message)
+        }
+        else{
+            toast.error(response.data.message)
+        }
+        reset(data)
 
     };
 

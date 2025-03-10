@@ -7,18 +7,18 @@ const AuthorField = ({ control, errors }) => {
     return (
         <div className="mb-6">
             <Controller
-                name="author"
+                name="auther"
                 control={control}
                 defaultValue=""
-                rules={{ required: 'Author is required' }}
+                rules={{ required: 'Auter is required' }}
                 render={({ field }) => (
                     <TextField
                         {...field}
-                        label="Author"
+                        label="Auter"
                         variant="outlined"
                         fullWidth
-                        error={!!errors.author}
-                        helperText={errors.author ? errors.author.message : ''}
+                        error={!!errors.auter}
+                        helperText={errors.auter ? errors.auter.message : ''}
                         className="rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-700"
                         InputProps={{
                             className: 'dark:text-white',
